@@ -1,10 +1,11 @@
 {
-    "autoload": {
+	"autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "j7mbo\\": "vendor/j7mbo/twitter-api-php"
         }
     },
-    "require": {
-        "j7mbo/twitter-api-php": "^1.0"
-    }
+	"require": {
+		"j7mbo/twitter-api-php": "^1.0"
+	}
 }

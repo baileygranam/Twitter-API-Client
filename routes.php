@@ -1,13 +1,18 @@
 <?php
-  
-  function route($controller, $action) {
-    
-    switch($controller) {
+
+/** 
+* Method to route the user to the appropriate controller/action. 
+*/
+function route($controller, $action) 
+{
+
+
+	switch($controller) {
       case 'main':
         $controller = new App\Controllers\MainController();
       break;
-      case 'algorithms':
-        $controller = new App\Controllers\AlgorithmsController();
+      case 'userTimeline':
+        $controller = new App\Controllers\UserTimelineController();
       break;
     }
 
@@ -15,7 +20,7 @@
   }
 
   $controllers = array('main' => ['home', 'error'],
-                       'algorithms' => ['index', 'show']);
+                       'userTimeline' => ['index', 'results']);
 
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
