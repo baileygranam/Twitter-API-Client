@@ -1,11 +1,6 @@
-<h2>Algorithm Details:</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Ranking</th>
-  </tr>
-  <tr>
-   
-  </tr>
-</table>
+<?php
+
+print_r(json_decode($this->userTimeline));
+
+?>

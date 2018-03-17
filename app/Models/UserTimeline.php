@@ -31,12 +31,19 @@ class UserTimeline
             'consumer_secret' => "BZpt2UwcOWFwkodFFuKXgBjqmDQBEuNMVv4e3JXBNdzlvy7POj"
         );
 
+        /* Define the API URL. */
         $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-        $getfield = '?screen_name='.$username;
+
+        /* Define the GET 'screen_name' request field. */
+        $getfield = '?count=1&screen_name='.$username;
+
+        /* Define the request method. */
         $requestMethod = 'GET';
+
+        /* Create a new TwitterAPIExchange object. */
         $twitter = new \TwitterAPIExchange($settings);
-        return $twitter->setGetfield($getfield)
-             ->buildOauth($url, $requestMethod)
-             ->performRequest();
+
+        /* Retrieve the data from the Twitter API and return it to the controller. */
+        return $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
     }
 }
