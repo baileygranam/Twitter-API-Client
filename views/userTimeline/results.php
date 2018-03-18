@@ -1,6 +1,6 @@
 
 <?php
 
-print_r(json_decode($this->userTimeline));
+print_r($this->userTimeline);
 
 ?>

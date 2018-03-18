@@ -43,7 +43,10 @@ class UserTimeline
         /* Create a new TwitterAPIExchange object. */
         $twitter = new \TwitterAPIExchange($settings);
 
-        /* Retrieve the data from the Twitter API and return it to the controller. */
-        return $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
+        /* Retrieve the data from the Twitter API. */
+        $result = $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
+
+        /* Json decode the data and return it to the controller. */
+        return json_decode($result);
     }
 }
