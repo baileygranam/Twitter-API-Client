@@ -1,6 +1,12 @@
 
 <?php
 
-print_r($this->userTimeline);
+foreach($this->userTimeline as $tweet)
+
+{
+
+  echo "	{$tweet->text} {$tweet->created_at}\n";
+
+}
 
 ?>
