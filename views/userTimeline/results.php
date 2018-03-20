@@ -1,4 +1,3 @@
-<?php //print_r($this->userTimeline); ?>
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
@@ -10,7 +9,7 @@
 			    		<span id="name"><?php echo $tweet['name']; ?></span>
 			    		<span id="screen-name"> &#8211; @<?php echo $tweet['username']; ?> </span>
 			    	</a>
-			    	<span id="date"><?php echo (new DateTime($tweet['date-created']))->format('M j'); ?></span>
+			    	<span id="date"><?php echo $tweet['date-created'] ?></span>
 			  	</div>
 			  	<?php if(!empty($tweet['media-url'])){ ?>
 				<img class="card-img-top" src="<?php echo $tweet['media-url']; ?>" alt="Card image cap">
