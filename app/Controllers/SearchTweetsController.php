@@ -34,18 +34,21 @@ class SearchTweetsController
             exit;
         }
 
-        /* Retrieve tweets based on the hashtag from the model. */
+        /* Retrieve tweets based on the query and count from the model. */
         $tweets = SearchTweets::getTweets($_GET['query'], $_GET['count']);
 
+        /* Check for error in model response. */
         if($tweets == false)
         {
             $this->index();
             exit;
         }
-
-        /* Load/render and display the results to the user. */
-        $view = new Renderer('views/searchTweets/');
-        $view->tweets = $tweets;
-        $view->render('results.php');
+        else
+        {
+            /* Load/render and display the results to the user. */
+            $view = new Renderer('views/searchTweets/');
+            $view->tweets = $tweets;
+            $view->render('results.php');
+        }
     }
 }
