@@ -32,7 +32,7 @@ class UserTimelineController
             $this->index();
 
         /* Retrieve the user's timeline from the model. */
-        $userTimeline = UserTimeline::find($_GET['id']);
+        $userTimeline = UserTimeline::getTimeline($_GET['id']);
 
         /* Load/render and display the results to the user. */
         $view = new Renderer('views/userTimeline/');

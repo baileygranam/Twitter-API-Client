@@ -21,7 +21,7 @@ class UserTimeline
     * @param $username - Username to be accessed.
     * @return - Json data retrieved from Twitter.
     */
-    public static function find($username)
+    public static function getTimeline($username)
     {
         /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
         $settings = array(
