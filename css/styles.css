@@ -100,3 +100,20 @@ body
 	float:right;
 	font-size:0.8em;
 }
+
+@media (max-width: 786px)
+{
+   	#user-profile
+    {
+        max-width:100%;
+    }
+}
+
+@media (min-width: 787px)
+{
+	#user-profile
+	{
+		max-width:18rem;
+	}
+}
+

@@ -47,6 +47,7 @@ class UserTimelineController
         /* Load/render and display the results to the user. */
         $view = new Renderer('views/userTimeline/');
         $view->userTimeline = $userTimeline;
+        $view->userInformation = $userTimeline[0]['user'];
         $view->render('results.php');
     }
 }
