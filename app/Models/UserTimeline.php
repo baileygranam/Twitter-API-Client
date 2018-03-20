@@ -46,7 +46,67 @@ class UserTimeline
         /* Retrieve the data from the Twitter API. */
         $result = $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
 
-        /* Json decode the data and return it to the controller. */
-        return json_decode($result);
+        /* Json decode the data. */
+        $result = json_decode($result);
+
+        /* Parse the data into a specific format and return to the controller. */
+        return (UserTimeline::parseTimeline($result));
+    }
+
+     /**
+    * Method to parse the timeline received by the Twitter API.
+    * @param $userTimeLine - timeline received by the Twitter API.
+    * @return parsed timeline.
+    */
+    private static function parseTimeline($userTimeline)
+    {
+        /* Loop through each tweet. */
+        foreach($userTimeline as $tweet) 
+        {
+            /* Check to see if the tweet is a retweet and perform specific styling. */
+            if (isset($tweet->retweeted_status)) 
+            {
+                $tweet_text = "RT <a href='https://twitter.com/{$tweet->retweeted_status->user->screen_name}'>@{$tweet->retweeted_status->user->screen_name}</a>: 
+                {$tweet->retweeted_status->full_text}";
+                $favorites = $tweet->retweeted_status->favorite_count;
+            } 
+            else 
+            {
+                $tweet_text = $tweet->full_text;
+                $favorites = $tweet->favorite_count;
+            }
+
+            /* Check to see if the tweet has an image. */
+            if(isset($tweet->entities->media))
+            {
+                $image_url = $tweet->entities->media[0]->media_url;
+            }
+            else
+            {
+                $image_url = "";
+            }
+    
+            /* Parse the data. */
+            $timeline[] = array(
+
+                'text' => $tweet_text, /* Content of the tweet. */
+                'image_url' => $image_url, /* URL of the tweet image (if it exists). */
+                'date_created' => (new \DateTime(($tweet->created_at)))->format('M j'), /* Date the post was created. */
+                'favorites' => $favorites, /* Number of favorites. */
+                'retweets' => $tweet->retweet_count, /* Number of retweets. */
+                'link_to_tweet' => "http://twitter.com/".$tweet->user->screen_name."/status/".$tweet->id, /* Link to the tweet itself. */
+
+                'user' => array(
+                    'name' => $tweet->user->name, /* Name of the user who tweeted/retweeted. */
+                    'username' => $tweet->user->screen_name, /* Username of the user who tweeted/retweeted. */
+                    'profile_image' => $tweet->user->profile_image_url, /* Profile image of the user who tweeted/retweeted. */
+                    'profile_url' => "https://twitter.com/".$tweet->user->screen_name, /* Link to the profile of the user who tweeted/retweeted. */
+                    'isVerified' => $tweet->user->verified
+                )
+            );
+        unset($tweet_text);
+        }
+
+        return $timeline;
     }
 }
