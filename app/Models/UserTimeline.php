@@ -21,7 +21,7 @@ class UserTimeline
     * @param $username - Username to be accessed.
     * @return - Json data retrieved from Twitter.
     */
-    public static function getTimeline($username)
+    public static function getTimeline($username, $count)
     {
         /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
         $settings = array(
@@ -35,7 +35,7 @@ class UserTimeline
         $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 
         /* Define the GET 'screen_name' request field. */
-        $getfield = '?count=10&tweet_mode=extended&screen_name='.$username;
+        $getfield = '?count='.$count.'&tweet_mode=extended&screen_name='.$username;
 
         /* Define the request method. */
         $requestMethod = 'GET';
@@ -48,6 +48,12 @@ class UserTimeline
 
         /* Json decode the data. */
         $result = json_decode($result);
+
+
+        if(isset($result->errors))
+        {
+            return false;
+        }
 
         /* Parse the data into a specific format and return to the controller. */
         return (UserTimeline::parseTimeline($result));

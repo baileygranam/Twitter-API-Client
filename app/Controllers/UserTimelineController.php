@@ -35,10 +35,9 @@ class UserTimelineController
         }
 
         /* Retrieve the user's timeline from the model. */
-        $userTimeline = UserTimeline::getTimeline($_GET['id']);
+        $userTimeline = UserTimeline::getTimeline($_GET['id'], $_GET['count']);
 
-        /* Check to see if there were any errors getting the userTimeline. */
-        if (isset($userTimeline->errors))
+        if($userTimeline == false)
         {
             $this->index();
             exit;

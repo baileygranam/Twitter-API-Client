@@ -4,7 +4,7 @@
 		<title>Twitter API</title>
 
 		<!-- Site Icon -->
-		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+		<link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/pokemon/images/9/92/Twitter_Icon.png/revision/latest?cb=20170420142741" type="image/x-icon">
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="
