@@ -35,7 +35,7 @@ class UserTimeline
         $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 
         /* Define the GET 'screen_name' request field. */
-        $getfield = '?count=1&tweet_mode=extended&include_rts=false&screen_name='.$username;
+        $getfield = '?count=10&tweet_mode=extended&include_rts=false&screen_name='.$username;
 
         /* Define the request method. */
         $requestMethod = 'GET';

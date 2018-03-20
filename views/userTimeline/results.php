@@ -22,6 +22,7 @@
 						<?php echo $tweet->favorite_count; ?>
 						<img src="https://image.flaticon.com/icons/svg/127/127998.svg" width="18">
 						<?php echo $tweet->retweet_count; ?>
+						<img src="https://image.flaticon.com/icons/svg/126/126481.svg" width="18">
 					</span>
 				</div>
 			</div>

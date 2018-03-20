@@ -44,9 +44,10 @@ body
 
 .card
 {
-	box-shadow: 0px 0px 100px 0px #D2D4D8;
+	box-shadow: 0px 0px 30px 0px #D2D4D8;
 	border:none;
 	letter-spacing: 0.3px;
+	margin-bottom:4em;
 }
 
 .card .card-body
