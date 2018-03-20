@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen:100,300,400,700');
+
+
+a, a:hover, a:active, a:visited
+{
+    text-decoration: none;
+}
+
+body
+{
+	background-color: #F9FAFC;
+	font-family: 'Oxygen', sans-serif;
+
+}
+
+.navbar
+{
+	background-color: #62BEF1;
+	padding: 0 8em;
+}
+
+.navbar a
+{
+	color: white;
+}
+
+.navbar-nav a
+{
+    transition: all 0.5s ease;
+    padding: 1.5em;
+    margin: 0 0.5em;
+}
+
+.navbar-nav a:hover
+{
+    background-color: white;
+    color: #62BEF1;
+}
+
+.container
+{
+	margin-top: 8em;
+}
+
+.card
+{
+	box-shadow: 0px 0px 100px 0px #D2D4D8;
+	border:none;
+	letter-spacing: 0.3px;
+}
+
+.card .card-body
+{
+	background-color: #F9FAFB;
+	font-size:0.9em;
+	border:none;
+	color: #5E5F63;
+	font-weight: normal;
+}
+
+.card .card-header
+{
+	background-color: white;
+	border:none;
+}
+
+.card #tweet-stats
+{
+	float:right;
+}
+
+.card #tweet-stats img
+{
+	margin-left:1em;
+}
+
+.card #profile-image img
+{
+	border-radius: 50%;
+	border:3px solid white;
+	box-shadow: -5px 15px 25px -15px #9B9CA3;
+	margin: 5px;
+}
+
+.card #name
+{
+	color: #5AB9EE;
+	font-weight: bold;
+}
+
+.card #screen-name, #date
+{
+	color: #CBCDD6;
+}
+
+.card #date
+{
+	margin-top:5px;
+	float:right;
+}

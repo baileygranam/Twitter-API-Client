@@ -5,9 +5,11 @@
 			<?php foreach($this->userTimeline as $tweet) { ?>
 			<div class="card" style="width: 40rem;">
 				<div class="card-header">
-					<span id="profile-image"><img src="<?php echo $tweet->user->profile_image_url; ?>"></span>
-			    	<span id="name"><?php echo $tweet->user->name; ?></span>
-			    	<a id="screen-name" href="<?php echo $tweet->user->url; ?>"> &#8211; @<?php echo $tweet->user->screen_name; ?> </a>
+					<a href="<?php echo $tweet->user->url; ?>">
+						<span id="profile-image"><img src="<?php echo $tweet->user->profile_image_url; ?>"></span>
+			    		<span id="name"><?php echo $tweet->user->name; ?></span>
+			    		<span id="screen-name"> &#8211; @<?php echo $tweet->user->screen_name; ?> </span>
+			    	</a>
 			    	<span id="date"><?php echo (new DateTime($tweet->created_at))->format('M j'); ?></span>
 			  	</div>
 			  	<?php if(isset($tweet->entities->media)){ ?>
