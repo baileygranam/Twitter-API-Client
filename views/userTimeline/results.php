@@ -4,15 +4,26 @@
 			<?php foreach($this->userTimeline as $tweet) { ?>
 			<div class="card" style="width: 40rem;">
 				<div class="card-header">
-					<a href="<?php echo $tweet->user->url; ?>">
-						<span id="profile-image"><img src="<?php echo $tweet['user-profile-img']; ?>"></span>
-			    		<span id="name"><?php echo $tweet['name']; ?></span>
-			    		<span id="screen-name"> &#8211; @<?php echo $tweet['username']; ?> </span>
+					<a href="<?php echo $tweet['user']['profile_url']; ?>" target="_blank">
+						<span id="profile-image">
+							<img src="<?php echo $tweet['user']['profile_image']; ?>">
+						</span>
+			    		<span id="name">
+			    			<?php echo $tweet['user']['name']; ?>
+			    			<?php if($tweet['user']['isVerified']) { ?>
+							<img src="https://pbs.twimg.com/media/Cj-5x98XAAA-t8B.png" width="18">
+							<?php } ?>
+			    		</span>
+			    		<span id="screen-name"> 
+			    			&#8211; @<?php echo $tweet['user']['username']; ?> 
+			    		</span>
 			    	</a>
-			    	<span id="date"><?php echo $tweet['date-created'] ?></span>
+			    	<span id="date">
+			    		<?php echo $tweet['date_created'] ?>
+			    	</span>
 			  	</div>
-			  	<?php if(!empty($tweet['media-url'])){ ?>
-				<img class="card-img-top" src="<?php echo $tweet['media-url']; ?>" alt="Card image cap">
+			  	<?php if(!empty($tweet['image_url'])){ ?>
+				<img class="card-img-top" src="<?php echo $tweet['image_url']; ?>" alt="Card image cap">
 				<?php }?>
 				<div class="card-body">
 					<p class="card-text"><?php echo $tweet['text']; ?></p>
@@ -21,7 +32,7 @@
 						<?php echo $tweet['favorites']; ?>
 						<img src="https://image.flaticon.com/icons/svg/127/127998.svg" width="18">
 						<?php echo $tweet['retweets']; ?>
-						<a href="<?php echo $tweet['link']; ?>" target="_blank">
+						<a href="<?php echo $tweet['link_to_tweet']; ?>" target="_blank">
 							<img src="https://image.flaticon.com/icons/svg/126/126481.svg" width="18">
 						</a>
 					</span>
