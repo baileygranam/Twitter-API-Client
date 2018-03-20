@@ -14,13 +14,17 @@ function route($controller, $action)
       case 'userTimeline':
         $controller = new App\Controllers\UserTimelineController();
       break;
+      case 'searchTweets':
+        $controller = new App\Controllers\SearchTweetsController();
+      break;
     }
 
     $controller->{ $action }();
   }
 
   $controllers = array('main' => ['home', 'error'],
-                       'userTimeline' => ['index', 'results']);
+                       'userTimeline' => ['index', 'results'],
+                       'searchTweets' => ['index', 'results'],);
 
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {

@@ -35,7 +35,7 @@
 		    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 		    	<div class="navbar-nav">
 		      		<a class="nav-item nav-link" href="?controller=userTimeline&action=index"><i class="fas fa-list-ul"></i> Timelines</a>
-		      		<a class="nav-item nav-link" href="#"><i class="fas fa-search"></i> Search</a>
+		      		<a class="nav-item nav-link" href="?controller=searchTweets&action=index"><i class="fas fa-search"></i> Search</a>
 		    	</div>
   			</div>
 		</nav>
