@@ -1,5 +1,5 @@
 <div class="card" id="user-profile">
-	<img class="card-img-top" src="<?php echo ($this->userInformation)['profile_image']; ?>" alt="Card image cap">
+  <img class="card-img-top" src="<?php echo ($this->userInformation)['profile_image']; ?>" alt="Card image cap">
 	<div class="card-body">
 		<h5 class="card-title">
     		<?php echo ($this->userInformation)['name']; ?> 

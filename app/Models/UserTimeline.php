@@ -53,7 +53,7 @@ class UserTimeline
         $result = json_decode($result);
 
         /* Check to see if there was an error in the request. */
-        if(isset($result->errors) || isset($result->error))
+        if(isset($result->errors) || isset($result->error) || empty($result))
             return false;
         /* Parse the data into a specific format and return to the controller. */
         else

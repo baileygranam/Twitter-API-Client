@@ -56,7 +56,7 @@ class SearchTweets
         $result = json_decode($result);
 
         /* Check to see if there was an error in the query. */
-        if(isset($result->errors) || isset($result->error))
+        if(isset($result->errors) || isset($result->error) || empty($result->statuses))
             return false;
         /* Parse the data into a specific format and return to the controller. */
         else 

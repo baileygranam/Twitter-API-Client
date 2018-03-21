@@ -60,7 +60,7 @@ class SearchUsers
             return false;
         /* Parse the data into a specific format and return to the controller. */
         else 
-            return ($result);
+            return (UserParser::parse($result));
     }
 
 }
