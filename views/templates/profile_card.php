@@ -5,7 +5,7 @@
             <?php echo ($user)['name']; ?> 
             <?php if(($user)['isVerified']) { ?> <img src="https://pbs.twimg.com/media/Cj-5x98XAAA-t8B.png" width="18"> <?php } ?>
          </h5>
-         <p id="name"> @<?php echo ($user)['username']; ?></p>
+         <p id="name"> <a href="index.php?id=<?php echo ($user)['username']; ?>&controller=userTimeline&action=results">@<?php echo ($user)['username']; ?></a></p>
          <p class="card-text"><?php echo ($user)['description']; ?></p>
     </div>
     <div class="card-footer">
