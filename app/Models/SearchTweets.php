@@ -3,6 +3,9 @@
 /* Declaring namespace. */
 namespace App\Models;
 
+/* Retrieve the configuration file for twitter credentials. */
+require_once('config.inc.php');
+
 /* Calling namespace. */
 use j7mbo as j7mbo;
 
@@ -25,17 +28,20 @@ class SearchTweets
     {
         /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
         $settings = array(
-            'oauth_access_token' => "744391147884273664-k4HVkfq4oCQtvm0zRzoBv4SOX9OkKzx",
-            'oauth_access_token_secret' => "WWJ47e2gZaUOvjOHzqgqJbyGKfAJ2pletRLkdCYBYiYjz",
-            'consumer_key' => "VEKAllSJ4Kohy28sMUsRZRXXs",
-            'consumer_secret' => "BZpt2UwcOWFwkodFFuKXgBjqmDQBEuNMVv4e3JXBNdzlvy7POj"
+            'oauth_access_token'        => OAUTH_ACCESS_TOKEN,
+            'oauth_access_token_secret' => OAUTH_ACCESS_TOKEN_SECRET,
+            'consumer_key'              => CONSUMER_KEY,
+            'consumer_secret'           => CONSUMER_SECRET
         );
 
         /* Define the API URL. */
         $url = 'https://api.twitter.com/1.1/search/tweets.json';
 
-        /* Define the GET 'screen_name' request field. */
-        $getfield = '?lang=en&count='.$count.'&tweet_mode=extended&q='.$query;
+        /* Define the language. */
+        $language = 'en';
+
+        /* Create the paramter fields. */
+        $getfield = '?lang='.$language.'&count='.$count.'&tweet_mode=extended&q='.$query;
 
         /* Define the request method. */
         $requestMethod = 'GET';
@@ -51,14 +57,10 @@ class SearchTweets
 
         /* Check to see if there was an error in the query. */
         if(isset($result->errors))
-        {
             return false;
-        }
-        else
-        {
-            /* Parse the data into a specific format and return to the controller. */
+        /* Parse the data into a specific format and return to the controller. */
+        else 
             return (TweetParser::parse($result->statuses));
-        }
     }
 
 }

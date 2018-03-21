@@ -6,6 +6,7 @@
 			    <h5 class="card-title">
 			    	Get Timeline:
 			    </h5>
+			    <p>Enter the username of the timeline you want to retrieve such as 'POTUS' and the number of tweets to retrieve.</p>
 			    <form method="GET" action="index.php">
 			    	<div class="form-group">
 				    	<input type="id" class="form-control" name="id" id="username" placeholder="Enter username">

@@ -6,6 +6,7 @@
 			    <h5 class="card-title">
 			    	Search Hashtags:
 			    </h5>
+			    <p>Enter a value or hashtag such as '#POTUS' and the number of tweets to retrieve.</p>
 			    <form method="GET" action="index.php">
 			    	<div class="form-group">
 				    	<input type="id" class="form-control" name="query" id="query" placeholder="Enter query">
