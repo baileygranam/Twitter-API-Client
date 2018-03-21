@@ -47,7 +47,6 @@ class SearchUsersController
         {
             /* Load/render and display the results to the user. */
             $view = new Renderer('views/searchUsers/');
-            $view->users = $users;
             $view->userInformation = $users;
             $view->render('results.php');
         }

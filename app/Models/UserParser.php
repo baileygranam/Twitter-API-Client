@@ -15,8 +15,7 @@ class UserParser
         foreach($users as $user) 
         {
             /* Parse the data. */
-            $user_list[] = array(
-                    
+            $user_list[] = array(  
                     'name'               => $user->name, /* User's name. */
                     'username'           => $user->screen_name, /* User's screen name. */
                     'location'           => $user->location, /* User's Location. */
@@ -26,7 +25,6 @@ class UserParser
                     'following_count'    => number_format($user->friends_count), /* Number of users the user is following. */
                     'likes_count'        => number_format($user->favourites_count), /* Number of likes the user has given. */
                     'isVerified'         => $user->verified /* Status of user verification. */
-                
             );
         unset($tweet_text);
         }
