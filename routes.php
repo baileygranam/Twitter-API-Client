@@ -17,6 +17,9 @@ function route($controller, $action)
       case 'searchTweets':
         $controller = new App\Controllers\SearchTweetsController();
       break;
+      case 'searchUsers':
+        $controller = new App\Controllers\SearchUsersController();
+      break;
     }
 
     $controller->{ $action }();
@@ -24,7 +27,8 @@ function route($controller, $action)
 
   $controllers = array('main' => ['home', 'error'],
                        'userTimeline' => ['index', 'results'],
-                       'searchTweets' => ['index', 'results'],);
+                       'searchTweets' => ['index', 'results'],
+                       'searchUsers' => ['index', 'results'],);
 
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
