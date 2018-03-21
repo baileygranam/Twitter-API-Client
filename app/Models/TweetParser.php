@@ -41,7 +41,7 @@ class TweetParser
             /* Parse the data. */
             $timeline[] = array(
 
-                'text'          => $tweet_text, /* Content of the tweet. */
+                'text'          => TweetParser::formatTweet($tweet_text), /* Content of the tweet. */
                 'image_url'     => $image_url, /* URL of the tweet image (if it exists). */
                 'date_created'  => (new \DateTime(($tweet->created_at)))->format('M j'), /* Date the post was created. */
                 'favorites'     => number_format($favorites), /* Number of favorites. */
@@ -67,4 +67,17 @@ class TweetParser
         return $timeline;
 	}
 
+    private static function formatTweet($tweet)
+    {
+        /* Parse Hashtags */
+        $tweet = (preg_replace('/(?:^|\s)#(\w+)/', ' <a href="index.php?query=%23$1&controller=searchTweets&action=results">#$1</a>', $tweet));
+
+        /* Parse User Mentions */
+        $tweet = (preg_replace('/(?:^|\s)@(\w+)/', ' <a href="index.php?id=$1&controller=userTimeline&action=results">@$1</a>', $tweet));
+
+        /* Parse Links */
+        $tweet = preg_replace('@(https?://([-\w\.]+)+(/([\w/_\.]*(\?\S+)?(#\S+)?)?)?)@','<a href="$1" target="_blank">$1</a>', $tweet);
+
+        return $tweet;
+    }
 }
