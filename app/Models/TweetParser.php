@@ -18,7 +18,7 @@ class TweetParser
             /* Check to see if the tweet is a retweet and perform specific styling. */
             if (isset($tweet->retweeted_status)) 
             {
-                $tweet_text = "RT <a href='https://twitter.com/{$tweet->retweeted_status->user->screen_name}'>@{$tweet->retweeted_status->user->screen_name}</a>: 
+                $tweet_text = "RT @{$tweet->retweeted_status->user->screen_name}: 
                 {$tweet->retweeted_status->full_text}";
                 $favorites = $tweet->retweeted_status->favorite_count;
             } 
