@@ -2,6 +2,13 @@
 /* Declaring namespace. */
 namespace App\Models;
 
+/**
+ * UserParser model class that takes user data returned by the Twitter API
+ * and parses it into a readable structure to display.
+ * 
+ * @author Bailey Granam
+ *
+ */
 class UserParser
 {
     /**

@@ -3,6 +3,13 @@
 /* Declaring namespace. */
 namespace App\Models;
 
+/**
+ * TweetParser model class that takes tweet data returned by the Twitter API
+ * and parses it into a readable structure to display.
+ * 
+ * @author Bailey Granam
+ *
+ */
 class TweetParser
 {
     /**

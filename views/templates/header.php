@@ -27,7 +27,7 @@
 	</head>
 	<body>
 		<nav class="navbar fixed-top navbar-expand-lg">
-			<a class="navbar-brand" href="#"><img src="https://vignette.wikia.nocookie.net/pokemon/images/9/92/Twitter_Icon.png/revision/latest?cb=20170420142741" width="45">Twitter API</a>
+			<a class="navbar-brand" href="index.php"><img src="https://vignette.wikia.nocookie.net/pokemon/images/9/92/Twitter_Icon.png/revision/latest?cb=20170420142741" width="45">Twitter API</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
 			aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
